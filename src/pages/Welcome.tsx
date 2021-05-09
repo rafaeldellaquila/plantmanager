@@ -10,12 +10,18 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 //Usando essa dependencia para contornar o SafeAreaView do Native que funciona apenas no IOS
 
+import { useNavigation } from '@react-navigation/core';
 import { Feather } from '@expo/vector-icons';
+
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 import wateringImg from '../assets/watering.png';
 
 export function Welcome() {
+  const navigation = useNavigation();
+  function handleStart() {
+    navigation.navigate('UserIndentification');
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
@@ -38,6 +44,7 @@ export function Welcome() {
         <TouchableOpacity
           style={styles.button}
           activeOpacity={0.8}
+          onPress={handleStart}
         >
           <Feather
             name='chevron-right'

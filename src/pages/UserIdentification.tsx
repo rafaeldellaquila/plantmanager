@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/core';
 import { Button } from '../components/Button';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -18,6 +19,7 @@ export function UserIndentification() {
   );
   const [isFilled, setIsFilled] = useState(false);
   const [name, setName] = useState<string>();
+  const navigation = useNavigation();
 
   function handleInputBlur() {
     setIsFocused(false);
@@ -30,6 +32,10 @@ export function UserIndentification() {
   function handleInputChange(value: string) {
     setIsFilled(!!value);
     setName(value);
+  }
+
+  function handleSubmit() {
+    navigation.navigate('Confirmation');
   }
 
   return (
@@ -67,7 +73,10 @@ export function UserIndentification() {
               />
             </View>
             <View style={styles.footer}>
-              <Button />
+              <Button
+                title='Confirmar'
+                onPress={handleSubmit}
+              />
             </View>
           </View>
         </View>
