@@ -45,6 +45,7 @@ export function UserIndentification() {
       <KeyboardAvoidingView
         style={styles.container}
         behavior={
+          // animação de como keyboard sobe
           Platform.OS === 'ios'
             ? 'padding'
             : 'height'

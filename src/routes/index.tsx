@@ -7,5 +7,5 @@ const Routes = () => (
     <AppRoutes />
   </NavigationContainer>
 );
-
+//container de navegação, é o index que o Routes procura no app
 export default Routes;

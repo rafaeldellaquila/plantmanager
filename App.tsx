@@ -14,7 +14,7 @@ export default function App() {
   });
   if (!fontsLoaded) {
     return <AppLoading />;
-  }
+  } //aguardando as fontes carregar
 
   return <Routes />;
 }

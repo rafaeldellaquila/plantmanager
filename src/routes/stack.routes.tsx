@@ -9,6 +9,8 @@ import colors from '../styles/colors';
 
 const stackRoutes = createStackNavigator();
 
+//Tipando que é uma function component
+// Definindo sequencia das telas
 const AppRoutes: React.FC = () => (
   <stackRoutes.Navigator
     headerMode='none'
