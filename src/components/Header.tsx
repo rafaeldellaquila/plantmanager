@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   userName: {
     fontSize: 32,
-    fontFamily: fonts.text,
+    fontFamily: fonts.heading,
     color: colors.heading,
     lineHeight: 40,
   },
