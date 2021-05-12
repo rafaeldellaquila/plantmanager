@@ -13,3 +13,5 @@ App para gerenciamento de suas plantas feito para estudar o React Native.
 - expo-font @expo-google-fonts
 - expo-app-loading
 - react-native-iphone-x-helper
+- axios
+- json server
