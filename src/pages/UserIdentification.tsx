@@ -8,17 +8,20 @@ import {
   View,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/core';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { Button } from '../components/Button';
+
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
 export function UserIndentification() {
-  const [isFocused, setIsFocused] = useState(
-    false
-  );
+  const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [name, setName] = useState<string>();
   const navigation = useNavigation();
@@ -36,7 +39,12 @@ export function UserIndentification() {
     setName(value);
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
+    if (!name) {
+      return Alert.alert('Preciso do seu nome! 🥺');
+    }
+
+    await AsyncStorage.setItem('@plantmanager:user', name);
     navigation.navigate('Confirmation');
   }
 
@@ -46,20 +54,14 @@ export function UserIndentification() {
         style={styles.container}
         behavior={
           // animação de como keyboard sobe
-          Platform.OS === 'ios'
-            ? 'padding'
-            : 'height'
+          Platform.OS === 'ios' ? 'padding' : 'height'
         }
       >
-        <TouchableWithoutFeedback
-          onPress={Keyboard.dismiss}
-        >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.content}>
             <View style={styles.form}>
               <View style={styles.header}>
-                <Text style={styles.emoji}>
-                  {isFilled ? '👌' : '😃'}
-                </Text>
+                <Text style={styles.emoji}>{isFilled ? '👌' : '😃'}</Text>
 
                 <Text style={styles.title}>
                   Como podemos{'\n'} chamar você?
@@ -79,10 +81,7 @@ export function UserIndentification() {
                 />
               </View>
               <View style={styles.footer}>
-                <Button
-                  title='Confirmar'
-                  onPress={handleSubmit}
-                />
+                <Button title='Confirmar' onPress={handleSubmit} />
               </View>
             </View>
           </View>
