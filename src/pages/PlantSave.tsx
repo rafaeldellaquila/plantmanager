@@ -14,26 +14,16 @@ import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { SvgFromUri } from 'react-native-svg';
 import { useRoute } from '@react-navigation/core';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
-import { Button } from '../components/Button';
+import { format, isBefore } from 'date-fns';
 
+import { PlantProps } from '../libs/storage';
+import { Button } from '../components/Button';
 import waterDrop from '../assets/waterdrop.png';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
-import { format, isBefore } from 'date-fns';
 
 interface Params {
-  plant: {
-    id: string;
-    name: string;
-    about: string;
-    water_tips: string;
-    photo: string;
-    environments: [string];
-    frequency: {
-      times: number;
-      repeat_every: string;
-    };
-  };
+  plant: PlantProps;
 }
 
 export function PlantSave() {

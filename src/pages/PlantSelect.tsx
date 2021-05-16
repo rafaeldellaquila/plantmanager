@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
+import { PlantProps } from '../libs/storage';
 import { EnviromentButton } from '../components/EnviromentButton';
 import { Header } from '../components/Header';
 import { PlantCardPrimary } from '../components/PlantCardPrimary';
@@ -22,21 +23,8 @@ interface EnviromentProps {
   title: string;
 }
 
-interface PlantProps {
-  id: string;
-  name: string;
-  about: string;
-  water_tips: string;
-  photo: string;
-  environments: [string];
-  frequency: {
-    times: number;
-    repeat_every: string;
-  };
-}
-
 export function PlantSelect() {
-  const [enviroments, setEnviroments] = useState<EnviromentProps[]>();
+  const [enviroments, setEnviroments] = useState<EnviromentProps[]>([]);
   const [enviromentSelected, setEnviromentSelected] = useState<string>('all');
   const [plants, setPlants] = useState<PlantProps[]>([]);
   const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
