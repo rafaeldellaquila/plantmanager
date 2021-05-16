@@ -44,8 +44,12 @@ export function UserIndentification() {
       return Alert.alert('Preciso do seu nome! 🥺');
     }
 
-    await AsyncStorage.setItem('@plantmanager:user', name);
-    navigation.navigate('Confirmation');
+    try {
+      await AsyncStorage.setItem('@plantmanager:user', name);
+      navigation.navigate('Confirmation');
+    } catch {
+      Alert.alert('Não foi possível salvar o seu nome. 😓');
+    }
   }
 
   return (
