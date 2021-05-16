@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Text,
   Image,
-  ScrollView,
   Platform,
   TouchableOpacity,
 } from 'react-native';
@@ -16,7 +15,7 @@ import { useNavigation, useRoute } from '@react-navigation/core';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { format, isBefore } from 'date-fns';
 
-import { loadPlant, PlantProps, savePlant } from '../libs/storage';
+import { PlantProps, savePlant } from '../libs/storage';
 import { Button } from '../components/Button';
 import waterDrop from '../assets/waterdrop.png';
 import colors from '../styles/colors';
