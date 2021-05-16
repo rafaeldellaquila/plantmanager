@@ -4,13 +4,11 @@ import {
   RectButton,
   RectButtonProps,
 } from 'react-native-gesture-handler';
-import colors from '../styles/colors';
 
-import color from '../styles/colors';
+import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
-interface EnviromentButtonProps
-  extends RectButtonProps {
+interface EnviromentButtonProps extends RectButtonProps {
   title: string;
   active?: boolean;
 }
@@ -28,12 +26,7 @@ export function EnviromentButton({
       ]}
       {...rest}
     >
-      <Text
-        style={[
-          styles.text,
-          active && styles.textActive,
-        ]}
-      >
+      <Text style={[styles.text, active && styles.textActive]}>
         {title}
       </Text>
     </RectButton>

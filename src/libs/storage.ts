@@ -21,10 +21,16 @@ interface StoragePlantProps {
   };
 }
 
-export async function savePlant(plant: PlantProps): Promise<void> {
+export async function savePlant(
+  plant: PlantProps
+): Promise<void> {
   try {
-    const data = await AsyncStorage.getItem('@plantmanager:plants');
-    const oldPlants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+    const data = await AsyncStorage.getItem(
+      '@plantmanager:plants'
+    );
+    const oldPlants = data
+      ? (JSON.parse(data) as StoragePlantProps)
+      : {};
 
     const newPlant = {
       [plant.id]: {
@@ -45,8 +51,12 @@ export async function savePlant(plant: PlantProps): Promise<void> {
 
 export async function loadPlant(): Promise<PlantProps[]> {
   try {
-    const data = await AsyncStorage.getItem('@plantmanager:plants');
-    const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+    const data = await AsyncStorage.getItem(
+      '@plantmanager:plants'
+    );
+    const plants = data
+      ? (JSON.parse(data) as StoragePlantProps)
+      : {};
     const plantsSorted = Object.keys(plants)
       .map((plant) => {
         return {
@@ -60,7 +70,9 @@ export async function loadPlant(): Promise<PlantProps[]> {
       .sort((a, b) =>
         Math.floor(
           new Date(a.dateTimeNotification).getTime() / 1000 -
-            Math.floor(new Date(b.dateTimeNotification).getTime() / 1000)
+            Math.floor(
+              new Date(b.dateTimeNotification).getTime() / 1000
+            )
         )
       );
     return plantsSorted;

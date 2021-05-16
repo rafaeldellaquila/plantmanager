@@ -24,10 +24,15 @@ interface EnviromentProps {
 }
 
 export function PlantSelect() {
-  const [enviroments, setEnviroments] = useState<EnviromentProps[]>([]);
-  const [enviromentSelected, setEnviromentSelected] = useState<string>('all');
+  const [enviroments, setEnviroments] = useState<
+    EnviromentProps[]
+  >([]);
+  const [enviromentSelected, setEnviromentSelected] =
+    useState<string>('all');
   const [plants, setPlants] = useState<PlantProps[]>([]);
-  const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
+  const [filteredPlants, setFilteredPlants] = useState<
+    PlantProps[]
+  >([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -111,7 +116,9 @@ export function PlantSelect() {
         <Header />
 
         <Text style={styles.title}>Em qual ambiente</Text>
-        <Text style={styles.subtitle}>você quer colocar sua planta?</Text>
+        <Text style={styles.subtitle}>
+          você quer colocar sua planta?
+        </Text>
       </View>
       <View>
         <FlatList
@@ -146,7 +153,11 @@ export function PlantSelect() {
             handleFetchMore(distanceFromEnd);
           }}
           ListFooterComponent={
-            loadingMore ? <ActivityIndicator color={colors.green} /> : <></>
+            loadingMore ? (
+              <ActivityIndicator color={colors.green} />
+            ) : (
+              <></>
+            )
           }
         />
       </View>

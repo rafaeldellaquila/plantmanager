@@ -72,7 +72,9 @@ export function UserIndentification() {
           <View style={styles.content}>
             <View style={styles.form}>
               <View style={styles.header}>
-                <Text style={styles.emoji}>{isFilled ? '👌' : '😃'}</Text>
+                <Text style={styles.emoji}>
+                  {isFilled ? '👌' : '😃'}
+                </Text>
 
                 <Text style={styles.title}>
                   Como podemos{'\n'} chamar você?
@@ -92,7 +94,10 @@ export function UserIndentification() {
                 />
               </View>
               <View style={styles.footer}>
-                <Button title='Confirmar' onPress={handleSubmit} />
+                <Button
+                  title='Confirmar'
+                  onPress={handleSubmit}
+                />
               </View>
             </View>
           </View>

@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
-import { loadPlant, PlantProps } from '../libs/storage';
-import { Header } from '../components/Header';
-import colors from '../styles/colors';
-import waterDrop from '../assets/waterdrop.png';
 import { formatDistance } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+
+import { loadPlant, PlantProps } from '../libs/storage';
+import { Header } from '../components/Header';
+
+import colors from '../styles/colors';
+import waterDrop from '../assets/waterdrop.png';
 import fonts from '../styles/fonts';
 
 export function MyPlants() {
@@ -20,13 +22,19 @@ export function MyPlants() {
       const plantsStoraged = await loadPlant();
 
       const nextTime = formatDistance(
-        new Date(plantsStoraged[0].dateTimeNotification).getTime(),
+        new Date(
+          plantsStoraged[0].dateTimeNotification
+        ).getTime(),
         new Date().getTime(),
         { locale: ptBR }
       );
 
       setNextWaterd(
-        `Não esqueça de regar a ${plantsStoraged[0].name} à ${nextTime}.`
+        `
+        Não esqueça de regar
+        a ${plantsStoraged[0].name}
+        à ${nextTime}.
+        `
       );
 
       setMyPlants(plantsStoraged);
@@ -40,7 +48,10 @@ export function MyPlants() {
     <View style={styles.container}>
       <Header />
       <View style={styles.spotlight}>
-        <Image source={waterDrop} style={styles.spotlightImage} />
+        <Image
+          source={waterDrop}
+          style={styles.spotlightImage}
+        />
         <Text style={styles.spotlightText}>{nextWaterd}</Text>
       </View>
       <View style={styles.plants}>
