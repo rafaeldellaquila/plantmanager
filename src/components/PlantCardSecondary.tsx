@@ -28,7 +28,7 @@ export const PlantCardSecondary = ({
 
       <Text style={styles.title}>{data.name}</Text>
       <View style={styles.details}>
-        <Text style={styles.timeLabel}>Regas às</Text>
+        <Text style={styles.timeLabel}>Regar às</Text>
         <Text style={styles.time}>{data.hour}</Text>
       </View>
     </RectButton>
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontFamily: fonts.heading,
     fontSize: 17,
+    color: colors.heading,
   },
   details: {
     alignItems: 'flex-end',
