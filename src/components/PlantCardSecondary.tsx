@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
   },
   details: {
     alignItems: 'flex-end',
+    marginRight: 15,
   },
   timeLabel: {
     fontSize: 16,
