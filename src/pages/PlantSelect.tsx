@@ -40,7 +40,7 @@ export function PlantSelect() {
 
   function handleEnviromentSelected(enviroment: string) {
     setEnviromentSelected(enviroment);
-
+    //Filtrando os ambientes da planta
     if (enviroment == 'all') return setFilteredPlants(plants);
 
     const filtered = plants?.filter((plant) =>
@@ -52,13 +52,14 @@ export function PlantSelect() {
 
   function handleFetchMore(distance: number) {
     if (distance < 1) return;
-
+    //carregamento de MAIS plantas da pagina
     setLoadingMore(true);
     setPage((oldValue) => oldValue + 1);
     fetchPlants();
   }
 
   async function fetchPlants() {
+    //get da api pra carregar as plantas
     const { data } = await api.get('plants', {
       params: {
         _sort: 'name',
@@ -67,7 +68,7 @@ export function PlantSelect() {
         _limit: 8,
       },
     });
-
+    //loading
     if (!data) return setLoading(true);
 
     if (page > 1) {

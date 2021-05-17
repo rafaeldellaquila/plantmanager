@@ -27,23 +27,29 @@ export function UserIndentification() {
   const navigation = useNavigation();
 
   function handleInputBlur() {
+    // Colorindo ou não ao focar
     setIsFocused(false);
     setIsFilled(!!name);
   }
   function handleInputFocus() {
+    // Colorindo ou não ao focar
     setIsFocused(true);
   }
 
   function handleInputChange(value: string) {
     setIsFilled(!!value);
     setName(value);
+    // mentendo cor ao preencher
   }
 
   async function handleSubmit() {
+    //Checando se o usuário digitou o nome
     if (!name) {
       return Alert.alert('Preciso do seu nome! 🥺');
     }
 
+    //Guardando o nome do usuário localmente no celular e
+    // navegando para a tela seguinte
     try {
       await AsyncStorage.setItem('@plantmanager:user', name);
       navigation.navigate('Confirmation', {

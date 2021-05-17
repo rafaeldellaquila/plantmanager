@@ -21,6 +21,7 @@ export function Welcome() {
   const navigation = useNavigation();
   function handleStart() {
     navigation.navigate('UserIndentification');
+    //Navegando para identificação do usuário
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -46,7 +47,7 @@ export function Welcome() {
           onPress={handleStart}
         >
           <Feather
-            name='chevron-right'
+            name='chevron-right' //vetor icon
             style={styles.buttonIcon}
           />
         </TouchableOpacity>
