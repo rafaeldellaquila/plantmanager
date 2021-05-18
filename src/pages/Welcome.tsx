@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 //Usando essa dependencia para contornar o SafeAreaView do Native que funciona apenas no IOS
 
 import { useNavigation } from '@react-navigation/core';
