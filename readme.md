@@ -23,8 +23,8 @@
 
 [//]: #
 
-- **React Js**
-- **Next.js**
+- **Expo**
+- **React Native**
 - **Axios**
 - **json-server**
 
